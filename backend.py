@@ -127,14 +127,3 @@ def mark_done(task_id):
             {"id": task_id}
         )
         s.commit()
-
-def delete_task(task_id):
-    with conn.session as s:
-        s.execute(
-            text("""
-                DELETE FROM tasks
-                WHERE id = :id
-            """),
-            {"id": task_id}
-        )
-        s.commit()
